@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+      ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
     permissions:
       contents: write
       pull-requests: write
@@ -34,5 +35,5 @@ jobs:
 
       - uses: anthropics/claude-code-action@main
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           github_token: ${{ secrets.GH_PAT }}
