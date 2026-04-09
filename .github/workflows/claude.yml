@@ -27,6 +27,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
       - uses: anthropics/claude-code-action@main
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
